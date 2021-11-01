@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct Super_SupperApp: App {
+    @StateObject private var recipeController = RecipeController()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(recipeController)
         }
     }
 }
