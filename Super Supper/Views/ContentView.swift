@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var recipeController: RecipeController
+    
     var body: some View {
-//        NavigationView {
-//            List {
-////                NavigationLink(destination: <#T##() -> _#>, label: <#T##() -> _#>)
-//            }
-//        }
-//        .navigationTitle("Super Supper")
-        
-        AllRecipes()
+        NavigationView {
+            List {
+                NavigationLink(destination: AllRecipes()) { MainCategory() }
+            }
+        }
+        .navigationTitle("Super Supper")
     }
 }
 

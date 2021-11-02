@@ -51,7 +51,10 @@ final class RecipeController:ObservableObject {
             
             do {
                 let wrapper = try jsonDecoder.decode(Wrapper.self, from: data)
-                self.recipes = wrapper.data
+
+                DispatchQueue.main.async {
+                    self.recipes = wrapper.data
+                }
             } catch {
                 print("Error decoding request data into instance of Recipe: \(error)")
             }

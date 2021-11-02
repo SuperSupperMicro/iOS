@@ -9,20 +9,20 @@ import Foundation
 
 struct Recipe: Hashable, Codable, Identifiable {
     
-    let id: Int
+    var id = UUID()
+    var recipeId: Int
     var title: String
     var description: String
     var url: String
     var imgUrl: String
     var totalTime: String
     var prepTime: String
-    var cooktime: String
+    var cookTime: String
     var yields: String
     var feeds: String
-    var ingredients: [Ingredient] = []
-    var steps: [Step] = []
-    var tags: [Tag] = []
-    
+    var ingredients: [Ingredient]?
+    var steps: [Step]?
+    var tags: [Tag]?
     
     struct Step: Hashable, Codable {
         var stepNum: Int
@@ -39,6 +39,8 @@ struct Recipe: Hashable, Codable, Identifiable {
         var tagID: String
     }
 }
+
+
 
 struct Wrapper:Hashable, Codable {
     let object: String
