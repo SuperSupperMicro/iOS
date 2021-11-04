@@ -10,10 +10,27 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var recipeController: RecipeController
     
+    let categories = [
+        "Get All Recipes",
+        "My Recipes",
+        "By Tag",
+        "By Inventory",
+        "By Time"
+    ]
+    
+    
     var body: some View {
         NavigationView {
             List {
-                NavigationLink(destination: AllRecipes()) { MainCategory() }
+                NavigationLink(destination: AllRecipes()) { MainCategory(action: recipeController.getAllRecipes, label: categories[0]) }
+                
+                NavigationLink(destination: AllRecipes()) { MainCategory(action: recipeController.getAllRecipes, label: categories[1]) }
+                
+                NavigationLink(destination: AllRecipes()) { MainCategory(action: recipeController.getAllRecipes, label: categories[2]) }
+                
+                NavigationLink(destination: AllRecipes()) { MainCategory(action: recipeController.getAllRecipes, label: categories[3]) }
+                
+                NavigationLink(destination: AllRecipes()) { MainCategory(action: recipeController.getAllRecipes, label: categories[4]) }
             }
         }
         .navigationTitle("Super Supper")

@@ -12,15 +12,12 @@ struct AllRecipes: View {
     
     
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(recipeController.recipes) { recipe in
-                    NavigationLink(destination: RecipeDeatil(recipe: recipe)) {
-                        RecipeRow(recipe: recipe)
-                    }
+        List {
+            ForEach(recipeController.recipes) { recipe in
+                NavigationLink(destination: RecipeDeatil(recipe: recipe)) {
+                    RecipeRow(recipe: recipe)
                 }
             }
-            .navigationTitle("All Recipes")
         }
     }
 }
