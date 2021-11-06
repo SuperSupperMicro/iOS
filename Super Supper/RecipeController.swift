@@ -19,13 +19,16 @@ final class RecipeController:ObservableObject {
     private var baseURL = URL(string: "http://192.168.1.125:2021")!
     private lazy var recipesURL = URL(string: "/recipes", relativeTo: baseURL)!
 //    private var task: URLSessionTask?
-    
-    
+//    var wrapper: Wrapper = loadFromFile("recipes.json")
     @Published var recipes: [Recipe] = []
-    
+//    var defaultRecipe: Recipe = loadFromFile("recipe.json")
+//    @Published var recipe: Recipe
     
     func getAllRecipes () {
         let recipesUrl = requestBuilder(recipesURL, true)!
+        
+        
+        
         let task = URLSession.shared.dataTask(with: recipesUrl, completionHandler: {[weak self] data, response, error in
             if let error = error {
                 print("Error fetching all recipes: \(error)")
@@ -55,6 +58,8 @@ final class RecipeController:ObservableObject {
                 DispatchQueue.main.async {
                     self.recipes = wrapper.data
                 }
+                
+                dump(self.recipes)
             } catch {
                 print("Error decoding request data into instance of Recipe: \(error)")
             }
@@ -75,5 +80,29 @@ final class RecipeController:ObservableObject {
         req.httpMethod = method.rawValue
         
         return req
+    }
+}
+
+
+func loadFromFile<T: Decodable> (_ filename: String) -> T {
+    let data: Data
+
+    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
+    else {
+        fatalError("Couldn't find \(filename) in main bundle.")
+    }
+
+    do {
+        data = try Data(contentsOf: file)
+    } catch {
+        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
+    }
+    
+    do {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return try decoder.decode(T.self, from: data)
+    } catch {
+        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }

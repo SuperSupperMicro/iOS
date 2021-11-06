@@ -105,7 +105,6 @@ struct Recipe_Previews: PreviewProvider {
     static let recipeControllers = RecipeController()
     
     static var previews: some View {
-        recipeControllers.getAllRecipes()
         return RecipeDeatil(recipe: recipeControllers.recipes[0])
             .environmentObject(recipeControllers)
     }

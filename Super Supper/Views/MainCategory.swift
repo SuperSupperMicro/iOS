@@ -13,7 +13,7 @@ struct MainCategory: View {
     let label: String
     
     var body: some View {
-        Button(action: action) {
+        Button(action: recipeController.getAllRecipes) {
             Text(label)
                 .fontWeight(.regular)
                 .foregroundColor(Color.black)
@@ -21,6 +21,7 @@ struct MainCategory: View {
         }.padding()
             .frame(width: /*@START_MENU_TOKEN@*/308.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
             .border(Color.black)
+            .onAppear(perform: recipeController.getAllRecipes)
     }
 }
 
