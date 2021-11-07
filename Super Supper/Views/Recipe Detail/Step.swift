@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct Step: View {
+    var step: String
+    
     var body: some View {
         HStack {
-//            Text("#)")
-//                .font(.footnote)
-            Text("Remove the beef from the pot and add the vinegar and wine. Cook over medium-high heat, scraping the pan with a wooden spoon to loosen any browned bits. Add the beef, beef broth and bay leaves. Bring to a boil, then reduce to a slow simmer.")
+            Text(step)
                 .font(.footnote)
                 .padding()
         }
@@ -22,8 +22,8 @@ struct Step: View {
 struct Step_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            Step()
-            Step()
+            Step(step: "Remove the beef from the pot and add the vinegar and wine. Cook over medium-high heat, scraping the pan with a wooden spoon to loosen any browned bits. Add the beef, beef broth and bay leaves. Bring to a boil, then reduce to a slow simmer.")
+            Step(step: "Remove the beef from the pot and add the vinegar and wine. Cook over medium-high heat, scraping the pan with a wooden spoon to loosen any browned bits. Add the beef, beef broth and bay leaves. Bring to a boil, then reduce to a slow simmer.")
         }.previewLayout(.fixed(width: 300, height: 160))
     }
 }

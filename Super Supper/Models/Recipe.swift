@@ -9,8 +9,7 @@ import Foundation
 
 struct Recipe: Hashable, Codable, Identifiable {
     
-    var id = UUID()
-    var recipeId: Int
+    var id: Int
     var title: String
     var description: String
     var url: String
@@ -20,9 +19,13 @@ struct Recipe: Hashable, Codable, Identifiable {
     var cookTime: String
     var yields: String
     var feeds: String
-    var ingredients: [Ingredient]?
-    var steps: [Step]?
-    var tags: [Tag]?
+    var ingredients: [Ingredient]
+    var steps: [Step]
+    var tags: [Tag]
+    
+//    var id: Int {
+//        recipeId
+//    }
     
     struct Step: Hashable, Codable {
         var stepNum: Int
@@ -35,17 +38,8 @@ struct Recipe: Hashable, Codable, Identifiable {
     }
 
     struct Tag: Hashable, Codable {
-        var recipeTagID: Int
-        var tagID: String
+        var recipetagId: Int
+        var tagId: Int
     }
 }
-
-
-
-struct Wrapper:Hashable, Codable {
-    let object: String
-    let hasMore: Bool
-    let data: [Recipe]
-}
-
 

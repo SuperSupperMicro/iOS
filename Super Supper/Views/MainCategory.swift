@@ -9,19 +9,24 @@ import SwiftUI
 
 struct MainCategory: View {
     @EnvironmentObject var recipeController: RecipeController
-    let action: () -> Void
     let label: String
     
     var body: some View {
-        Button(action: recipeController.getAllRecipes) {
-            Text(label)
-                .fontWeight(.regular)
-                .foregroundColor(Color.black)
+        HStack {
+            ZStack {
+                Circle()
+                    .fill(Color.green)
+                    .frame(width: 200, height: 125)
+                Text(label)
+                    .fontWeight(.regular)
+                    .foregroundColor(Color.blue)
                 .padding()
+            }
+                
         }.padding()
-            .frame(width: /*@START_MENU_TOKEN@*/308.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
+            .frame(width: 250.0, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
             .border(Color.black)
-            .onAppear(perform: recipeController.getAllRecipes)
+            .cornerRadius(1.0, antialiased: false)
     }
 }
 
@@ -29,7 +34,7 @@ struct MainCategory_Previews: PreviewProvider {
     static let recipeController = RecipeController()
     
     static var previews: some View {
-        MainCategory(action: recipeController.getAllRecipes, label: "Get All Recipes")
+        MainCategory(label: "Get All Recipes")
             .environmentObject(recipeController)
     }
 }

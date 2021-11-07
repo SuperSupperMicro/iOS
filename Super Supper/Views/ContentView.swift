@@ -22,18 +22,18 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                NavigationLink(destination: AllRecipes()) { MainCategory(action: recipeController.getAllRecipes, label: categories[0]) }
+                NavigationLink(destination: AllRecipes()) { MainCategory(label: categories[0]) }
                 
-                NavigationLink(destination: AllRecipes()) { MainCategory(action: recipeController.getAllRecipes, label: categories[1]) }
+                NavigationLink(destination: AllRecipes()) { MainCategory(label: categories[1]) }
                 
-                NavigationLink(destination: AllRecipes()) { MainCategory(action: recipeController.getAllRecipes, label: categories[2]) }
+                NavigationLink(destination: AllRecipes()) { MainCategory(label: categories[2]) }
                 
-                NavigationLink(destination: AllRecipes()) { MainCategory(action: recipeController.getAllRecipes, label: categories[3]) }
+                NavigationLink(destination: AllRecipes()) { MainCategory(label: categories[3]) }
                 
-                NavigationLink(destination: AllRecipes()) { MainCategory(action: recipeController.getAllRecipes, label: categories[4]) }
+                NavigationLink(destination: AllRecipes()) { MainCategory(label: categories[4]) }
             }
+//            .navigationTitle("Super Supper")
         }
-        .navigationTitle("Super Supper")
     }
 }
 

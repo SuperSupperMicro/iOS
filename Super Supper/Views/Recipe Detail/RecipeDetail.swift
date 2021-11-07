@@ -28,21 +28,21 @@ struct RecipeDeatil: View {
                             Text("Total Time")
                                 .font(.footnote)
                                 .fontWeight(.bold)
-                            Text("2 hr")
+                            Text(recipe.totalTime)
                         }
                         Text("/")
                         VStack {
                             Text("Prep Time")
                                 .font(.footnote)
                                 .fontWeight(.bold)
-                            Text("30 min")
+                            Text(recipe.prepTime)
                         }
                         Text("/")
                         VStack {
                             Text("Cook Time")
                                 .font(.footnote)
                                 .fontWeight(.bold)
-                            Text("1 1/2 hrs")
+                            Text(recipe.cookTime)
                         }
                     }.font(.caption2)
                     
@@ -51,14 +51,14 @@ struct RecipeDeatil: View {
                             Text("Yeilds")
                                 .font(.footnote)
                                 .fontWeight(.bold)
-                            Text("3 qts")
+                            Text(recipe.yields)
                         }
                         Text("/")
                         VStack {
                             Text("Feeds")
                                 .font(.footnote)
                                 .fontWeight(.bold)
-                            Text("4")
+                            Text(recipe.feeds)
                         }
                     }
                     .font(.caption2)
@@ -73,7 +73,7 @@ struct RecipeDeatil: View {
                     .font(.headline)
                 .multilineTextAlignment(.center)
                 
-                Text("This classic stick-to-your-ribs stew is the ideal project for a chilly weekend. Beef, onion, carrots, potatoes and red wine come together in cozy harmony. If you are feeding a crowd, good news: It doubles (or triples) beautifully.")
+                Text(recipe.description)
                     .font(.footnote)
                 
                 Divider()
@@ -93,7 +93,8 @@ struct RecipeDeatil: View {
                 Spacer()
             }
             List {
-                Step()
+                Step(step: "Error loading recipe steps")
+
             }
             .frame(minHeight: 200)
         }
@@ -105,7 +106,7 @@ struct Recipe_Previews: PreviewProvider {
     static let recipeControllers = RecipeController()
     
     static var previews: some View {
-        return RecipeDeatil(recipe: recipeControllers.recipes[0])
+        return RecipeDeatil(recipe: recipeControllers.defaultRecipe)
             .environmentObject(recipeControllers)
     }
 }

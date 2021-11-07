@@ -19,10 +19,9 @@ final class RecipeController:ObservableObject {
     private var baseURL = URL(string: "http://192.168.1.125:2021")!
     private lazy var recipesURL = URL(string: "/recipes", relativeTo: baseURL)!
 //    private var task: URLSessionTask?
-//    var wrapper: Wrapper = loadFromFile("recipes.json")
-    @Published var recipes: [Recipe] = []
-//    var defaultRecipe: Recipe = loadFromFile("recipe.json")
-//    @Published var recipe: Recipe
+
+    @Published var recipes: [RecipeSummary] = []
+    var defaultRecipe: Recipe = loadFromFile("recipe.json")
     
     func getAllRecipes () {
         let recipesUrl = requestBuilder(recipesURL, true)!
@@ -58,8 +57,7 @@ final class RecipeController:ObservableObject {
                 DispatchQueue.main.async {
                     self.recipes = wrapper.data
                 }
-                
-                dump(self.recipes)
+
             } catch {
                 print("Error decoding request data into instance of Recipe: \(error)")
             }
