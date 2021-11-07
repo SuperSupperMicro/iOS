@@ -27,14 +27,20 @@ struct Recipe: Hashable, Codable, Identifiable {
 //        recipeId
 //    }
     
-    struct Step: Hashable, Codable {
+    struct Step: Hashable, Codable, Identifiable {
         var stepNum: Int
         var step: String
+        var id: Int {
+            stepNum
+        }
     }
 
-    struct Ingredient: Hashable, Codable {
+    struct Ingredient: Hashable, Codable, Identifiable {
         var qty: String
         var ingredient: String
+        var id: String {
+            qty + ingredient
+        }
     }
 
     struct Tag: Hashable, Codable {

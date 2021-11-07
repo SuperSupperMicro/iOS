@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct IngredientList: View {
+    var recipe: Recipe
+    
     var body: some View {
         VStack {
             HStack {
@@ -16,33 +18,8 @@ struct IngredientList: View {
                 Spacer()
             }
             List {
-                HStack {
-                    Circle()
-                        .frame(width: 5, height: 5)
-                    Text("1/4 cup")
-                    Spacer()
-                    Text("sugar")
-                }
-                HStack {
-                    Circle()
-                        .frame(width: 5, height: 5)
-                    Text("1/2 cup")
-                    Spacer()
-                    Text("all-purpose flour")
-                }
-                HStack {
-                    Circle()
-                        .frame(width: 5, height: 5)
-                    Text("1/4 tsp")
-                    Spacer()
-                    Text("vanilla extract")
-                }
-                HStack {
-                    Circle()
-                        .frame(width: 5, height: 5)
-                    Text("1/4 cup")
-                    Spacer()
-                    Text("unsalted butter")
+                ForEach(recipe.ingredients) { ingredient in
+                    RecipeIngredient(qty: ingredient.qty, ingredient: ingredient.ingredient)
                 }
             }
         }
@@ -50,7 +27,9 @@ struct IngredientList: View {
 }
 
 struct IngredientList_Previews: PreviewProvider {
+    static let rec = RecipeController().defaultRecipe
     static var previews: some View {
-        IngredientList()
+        IngredientList(recipe: rec)
+            
     }
 }

@@ -14,12 +14,11 @@ struct AllRecipes: View {
     var body: some View {
         List {
             ForEach(recipeController.recipes) { recipe in
-                NavigationLink(destination: RecipeDeatil(recipe: recipeController.defaultRecipe)) {
+                NavigationLink(destination: RecipeDeatil(id: recipe.id)) {
                     RecipeRow(recipe: recipe)
                 }
             }
         }
-//        navigationTitle("All Recipes")
         .onAppear(perform: recipeController.getAllRecipes)
     }
 }

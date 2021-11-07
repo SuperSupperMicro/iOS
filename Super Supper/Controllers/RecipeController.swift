@@ -21,6 +21,7 @@ final class RecipeController:ObservableObject {
 //    private var task: URLSessionTask?
 
     @Published var recipes: [RecipeSummary] = []
+    @Published var recipe: Recipe = loadFromFile("emptyRecipe.json")
     var defaultRecipe: Recipe = loadFromFile("recipe.json")
     
     func getAllRecipes () {
@@ -30,6 +31,7 @@ final class RecipeController:ObservableObject {
         
         let task = URLSession.shared.dataTask(with: recipesUrl, completionHandler: {[weak self] data, response, error in
             if let error = error {
+//            TODO: proper error handling
                 print("Error fetching all recipes: \(error)")
                 return
             }
@@ -59,11 +61,53 @@ final class RecipeController:ObservableObject {
                 }
 
             } catch {
-                print("Error decoding request data into instance of Recipe: \(error)")
+                print("Error decoding request data into instance of RecipeSummary: \(error)")
             }
         })
         task.resume()
     }
+    
+    func getRecipe(_ id: Int) {
+        let recipeReq = requestBuilder(URL(string: "/recipes/\(id)", relativeTo: baseURL)!, true)!
+        
+        URLSession.shared.dataTask(with: recipeReq, completionHandler: { [weak self] data, response, error in
+            if let error = error {
+                print("Error fetching recipe: \(error)")
+                return
+            }
+
+            guard let response = response as? HTTPURLResponse,
+                  (200...299).contains(response.statusCode) else {
+                      print("Error fetching recipe \(id)")
+                      return
+                  }
+            
+            guard let self = self else { return }
+            
+            guard let data = data else {
+                print("Error fetching recipe, no data returned from request")
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            do {
+                let recipe = try decoder.decode(Recipe.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.recipe = recipe
+                }
+            } catch {
+                print("Error decoding request into instance of Recipe: \(error)")
+            }
+//            completion()
+        }).resume()
+        return
+    }
+    
+    
     
     func requestBuilder (_ url: URL,_ resolving: Bool = false,
                          _ method: HTTPMethod = HTTPMethod.get) -> URLRequest? {

@@ -32,7 +32,6 @@ struct ContentView: View {
                 
                 NavigationLink(destination: AllRecipes()) { MainCategory(label: categories[4]) }
             }
-//            .navigationTitle("Super Supper")
         }
     }
 }

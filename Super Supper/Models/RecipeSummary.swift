@@ -18,7 +18,7 @@ struct RecipeSummary: Hashable, Codable, Identifiable {
     var totalTime: String
     var prepTime: String
     var cookTime: String
-    var yeilds: String
+    var yields: String
     var feeds: String
     
     var id: Int {recipeId}
