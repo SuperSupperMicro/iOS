@@ -59,6 +59,8 @@ struct RecipeDeatil: View {
                 .frame(minHeight: 200)
             }
         }
+        .navigationTitle(recipeController.recipe.title)
+        .navigationBarTitleDisplayMode(.inline)
         .padding()
         .onAppear{
             recipeController.getRecipe(id)

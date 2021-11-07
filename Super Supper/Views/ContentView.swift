@@ -31,6 +31,8 @@ struct ContentView: View {
                 NavigationLink(destination: AllRecipes()) { MainCategory(label: categories[3]) }
                 
                 NavigationLink(destination: AllRecipes()) { MainCategory(label: categories[4]) }
+                
+                NavigationLink(destination: AddRecipe()) { MainCategory(label: "add new recipe") }
             }
         }
     }

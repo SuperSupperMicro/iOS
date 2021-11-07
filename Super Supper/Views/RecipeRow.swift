@@ -12,7 +12,15 @@ struct RecipeRow: View {
     
     var body: some View {
         HStack {
-            Text("Recipe Photo")
+            if #available(iOS 15.0, *) {
+                AsyncImage(url: URL(string: recipe.imgUrl))
+                    .frame(width: 75, height: 75)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                    .shadow(radius: 7)
+            } else {
+                Image("beefStew")
+            }
             Text(recipe.title)
                 .font(.title)
         }

@@ -14,11 +14,14 @@
 		F10269E42737DB6200ED1CC7 /* TimeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10269E32737DB6200ED1CC7 /* TimeInfo.swift */; };
 		F10269E62737E72900ED1CC7 /* RecipeIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10269E52737E72900ED1CC7 /* RecipeIngredient.swift */; };
 		F14450C32737FED000CB711F /* StepList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14450C22737FED000CB711F /* StepList.swift */; };
+		F14450C52738056C00CB711F /* AddRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14450C42738056C00CB711F /* AddRecipe.swift */; };
+		F14450C82738280300CB711F /* Addingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14450C72738280300CB711F /* Addingredient.swift */; };
+		F14450CA273831ED00CB711F /* AddStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14450C9273831ED00CB711F /* AddStep.swift */; };
 		F14D0B4B272E59F40011952D /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14D0B4A272E59F40011952D /* RecipeController.swift */; };
 		F14D0B4D272F772D0011952D /* AllRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14D0B4C272F772D0011952D /* AllRecipes.swift */; };
 		F14D0B50272FA2ED0011952D /* MainCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14D0B4F272FA2ED0011952D /* MainCategory.swift */; };
 		F18B6DB1272C5BF3001C5517 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18B6DB0272C5BF3001C5517 /* Recipe.swift */; };
-		F18B6DB4272C6457001C5517 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18B6DB3272C6457001C5517 /* Step.swift */; };
+		F18B6DB4272C6457001C5517 /* RecipeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18B6DB3272C6457001C5517 /* RecipeStep.swift */; };
 		F1FF26482721D2F10060CE62 /* Super_SupperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF26472721D2F10060CE62 /* Super_SupperApp.swift */; };
 		F1FF264A2721D2F10060CE62 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF26492721D2F10060CE62 /* ContentView.swift */; };
 		F1FF264C2721D2F50060CE62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1FF264B2721D2F50060CE62 /* Assets.xcassets */; };
@@ -36,11 +39,14 @@
 		F10269E32737DB6200ED1CC7 /* TimeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInfo.swift; sourceTree = "<group>"; };
 		F10269E52737E72900ED1CC7 /* RecipeIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeIngredient.swift; sourceTree = "<group>"; };
 		F14450C22737FED000CB711F /* StepList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepList.swift; sourceTree = "<group>"; };
+		F14450C42738056C00CB711F /* AddRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipe.swift; sourceTree = "<group>"; };
+		F14450C72738280300CB711F /* Addingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addingredient.swift; sourceTree = "<group>"; };
+		F14450C9273831ED00CB711F /* AddStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStep.swift; sourceTree = "<group>"; };
 		F14D0B4A272E59F40011952D /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
 		F14D0B4C272F772D0011952D /* AllRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipes.swift; sourceTree = "<group>"; };
 		F14D0B4F272FA2ED0011952D /* MainCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategory.swift; sourceTree = "<group>"; };
 		F18B6DB0272C5BF3001C5517 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		F18B6DB3272C6457001C5517 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		F18B6DB3272C6457001C5517 /* RecipeStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStep.swift; sourceTree = "<group>"; };
 		F1FF26442721D2F10060CE62 /* Super Supper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Supper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1FF26472721D2F10060CE62 /* Super_SupperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Super_SupperApp.swift; sourceTree = "<group>"; };
 		F1FF26492721D2F10060CE62 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,13 +86,23 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		F14450C62738258D00CB711F /* Add Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				F14450C42738056C00CB711F /* AddRecipe.swift */,
+				F14450C72738280300CB711F /* Addingredient.swift */,
+				F14450C9273831ED00CB711F /* AddStep.swift */,
+			);
+			path = "Add Recipe";
+			sourceTree = "<group>";
+		};
 		F14D0B4E272F847E0011952D /* Recipe Detail */ = {
 			isa = PBXGroup;
 			children = (
 				F1FF268C2723DD530060CE62 /* RecipeDetail.swift */,
 				F1FF268E2724C7640060CE62 /* IngredientList.swift */,
 				F10269E52737E72900ED1CC7 /* RecipeIngredient.swift */,
-				F18B6DB3272C6457001C5517 /* Step.swift */,
+				F18B6DB3272C6457001C5517 /* RecipeStep.swift */,
 				F10269E32737DB6200ED1CC7 /* TimeInfo.swift */,
 				F14450C22737FED000CB711F /* StepList.swift */,
 			);
@@ -110,6 +126,7 @@
 				F14D0B4F272FA2ED0011952D /* MainCategory.swift */,
 				F14D0B4E272F847E0011952D /* Recipe Detail */,
 				F1FF26492721D2F10060CE62 /* ContentView.swift */,
+				F14450C62738258D00CB711F /* Add Recipe */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -225,13 +242,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F14450C82738280300CB711F /* Addingredient.swift in Sources */,
+				F14450C52738056C00CB711F /* AddRecipe.swift in Sources */,
 				F10269E42737DB6200ED1CC7 /* TimeInfo.swift in Sources */,
 				F10269E62737E72900ED1CC7 /* RecipeIngredient.swift in Sources */,
 				F1FF264A2721D2F10060CE62 /* ContentView.swift in Sources */,
 				F14D0B4D272F772D0011952D /* AllRecipes.swift in Sources */,
 				F1FF268F2724C7640060CE62 /* IngredientList.swift in Sources */,
+				F14450CA273831ED00CB711F /* AddStep.swift in Sources */,
 				F1FF26482721D2F10060CE62 /* Super_SupperApp.swift in Sources */,
-				F18B6DB4272C6457001C5517 /* Step.swift in Sources */,
+				F18B6DB4272C6457001C5517 /* RecipeStep.swift in Sources */,
 				F14D0B50272FA2ED0011952D /* MainCategory.swift in Sources */,
 				F18B6DB1272C5BF3001C5517 /* Recipe.swift in Sources */,
 				F14D0B4B272E59F40011952D /* RecipeController.swift in Sources */,

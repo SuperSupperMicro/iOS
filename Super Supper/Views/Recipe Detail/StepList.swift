@@ -19,7 +19,7 @@ struct StepList: View {
             }
             List {
                 ForEach(recipe.steps) { step in
-                    Step(step: step.step)
+                    RecipeStep(step: step.step)
                 }
 //                Step(step: "Error loading recipe steps")
             }

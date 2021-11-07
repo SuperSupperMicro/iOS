@@ -19,6 +19,7 @@ struct AllRecipes: View {
                 }
             }
         }
+        .navigationTitle("All Recipes")
         .onAppear(perform: recipeController.getAllRecipes)
     }
 }

@@ -18,7 +18,6 @@ final class RecipeController:ObservableObject {
     
     private var baseURL = URL(string: "http://192.168.1.125:2021")!
     private lazy var recipesURL = URL(string: "/recipes", relativeTo: baseURL)!
-//    private var task: URLSessionTask?
 
     @Published var recipes: [RecipeSummary] = []
     @Published var recipe: Recipe = loadFromFile("emptyRecipe.json")
@@ -26,8 +25,6 @@ final class RecipeController:ObservableObject {
     
     func getAllRecipes () {
         let recipesUrl = requestBuilder(recipesURL, true)!
-        
-        
         
         let task = URLSession.shared.dataTask(with: recipesUrl, completionHandler: {[weak self] data, response, error in
             if let error = error {
@@ -102,12 +99,72 @@ final class RecipeController:ObservableObject {
             } catch {
                 print("Error decoding request into instance of Recipe: \(error)")
             }
-//            completion()
         }).resume()
         return
     }
     
-    
+    func postNewRecipe(
+        title: String,
+        description: String,
+        url: String,
+        imgUrl: String,
+        totalTime: String,
+        prepTime: String,
+        cookTime: String,
+        yields: String,
+        feeds: String,
+        ingredients: [Ingredient],
+        steps: [Step],
+        tags: [Tag]
+    ) {
+        
+        let newRecipe = RecipePost(title: title,
+                               description: description,
+                               url: url, imgUrl: imgUrl,
+                               totalTime: totalTime,
+                               prepTime: prepTime,
+                               cookTime: cookTime, yields: yields,
+                               feeds: feeds, ingredients: ingredients,
+                               steps: steps, tags: tags)
+        
+        dump(newRecipe)
+        
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        guard let json = try? encoder.encode(newRecipe) else {
+            print("Error encoding new recipe into json")
+            return
+        }
+        
+        let recipeReq = requestBuilder(recipesURL, true, HTTPMethod.post)!
+        
+        URLSession.shared.uploadTask(with: recipeReq, from: json) { resData, response, error in
+            if let error = error {
+                print("Server error POSTing new recipe: \(error)")
+                return
+            }
+            
+            
+            guard let response = response as? HTTPURLResponse,
+            (200...203).contains(response.statusCode) else {
+                print("Server reponse error")
+                if let responseString = String(bytes: resData!, encoding: .utf8) {
+                    print(responseString)
+                } else {
+                    print("Unable to encode response to valid String")
+                }
+                return
+            }
+            
+            if let mimeType = response.mimeType,
+               mimeType == "application/json",
+               let data = resData,
+               let jsonString = String(data: data, encoding: .utf8) {
+                print("Post Data: \(jsonString)")
+            }
+
+        }.resume()
+    }
     
     func requestBuilder (_ url: URL,_ resolving: Bool = false,
                          _ method: HTTPMethod = HTTPMethod.get) -> URLRequest? {
@@ -120,6 +177,10 @@ final class RecipeController:ObservableObject {
         
         var req = URLRequest(url: url)
         req.httpMethod = method.rawValue
+        
+        if method == HTTPMethod.post || method == HTTPMethod.put {
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
         
         return req
     }
