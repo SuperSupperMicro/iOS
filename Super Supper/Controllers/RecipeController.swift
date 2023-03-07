@@ -8,7 +8,7 @@
 import Foundation
 
 
-final class RecipeController:ObservableObject {
+final class RecipeController : ObservableObject {
     enum HTTPMethod: String {
         case get = "GET"
         case put = "PUT"

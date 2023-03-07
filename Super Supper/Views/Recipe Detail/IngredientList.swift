@@ -13,16 +13,20 @@ struct IngredientList: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Ingredients:")
-                    .font(.headline)
                 Spacer()
+                Text("X")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.red)
             }
-            List {
-                ForEach(recipe.ingredients) { ingredient in
-                    RecipeIngredient(qty: ingredient.qty, ingredient: ingredient.ingredient)
-                }
+            List(recipe.ingredients) {
+//                ForEach(recipe.ingredients) { ingredient in
+//                    RecipeIngredient(qty: ingredient.qty, ingredient: ingredient.ingredient)
+//                }
+                RecipeIngredient(qty: $0.qty, ingredient: $0.ingredient)
             }
         }
+        .padding()
     }
 }
 

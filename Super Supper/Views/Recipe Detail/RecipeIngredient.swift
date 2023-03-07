@@ -20,6 +20,8 @@ struct RecipeIngredient: View {
             Spacer()
             Text(ingredient)
         }
+        .padding(.top)
+        .padding(.bottom)
     }
 }
 

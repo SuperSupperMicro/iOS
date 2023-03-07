@@ -9,31 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var recipeController: RecipeController
+    @State private var tabSelection: Tab = .recipes
     
-    let categories = [
-        "Get All Recipes",
-        "My Recipes",
-        "By Tag",
-        "By Inventory",
-        "By Time"
-    ]
-    
+    enum Tab {
+        case recipes
+        case tab2
+    }
     
     var body: some View {
-        NavigationView {
-            List {
-                NavigationLink(destination: AllRecipes()) { MainCategory(label: categories[0]) }
-                
-                NavigationLink(destination: AllRecipes()) { MainCategory(label: categories[1]) }
-                
-                NavigationLink(destination: AllRecipes()) { MainCategory(label: categories[2]) }
-                
-                NavigationLink(destination: AllRecipes()) { MainCategory(label: categories[3]) }
-                
-                NavigationLink(destination: AllRecipes()) { MainCategory(label: categories[4]) }
-                
-                NavigationLink(destination: AddRecipe()) { MainCategory(label: "add new recipe") }
-            }
+        TabView(selection: $tabSelection) {
+            AllRecipes()
+                .tabItem {
+                    Label("Recipes", systemImage: "list.bullet")
+                }
+            
+            
+            CategoryList()
+                .tabItem {
+                    Label("Tab2", systemImage: "star")
+                }
         }
     }
 }

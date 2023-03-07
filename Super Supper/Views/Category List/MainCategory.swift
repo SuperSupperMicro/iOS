@@ -27,6 +27,7 @@ struct MainCategory: View {
             .frame(width: 250.0, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
             .border(Color.black)
             .cornerRadius(1.0, antialiased: false)
+            .background(Color.yellow)
     }
 }
 

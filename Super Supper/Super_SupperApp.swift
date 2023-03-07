@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoogleSignIn
 
 @main
 struct Super_SupperApp: App {
@@ -15,6 +16,14 @@ struct Super_SupperApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(recipeController)
+                .onOpenURL{ url in
+                    GIDSignIn.sharedInstance.handle(url)
+                }
+                .onAppear{
+                    GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+                        // check if user exist othersie do someting with error
+                    }
+                }
         }
     }
 }

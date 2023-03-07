@@ -10,19 +10,22 @@ import SwiftUI
 struct StepList: View {
     var recipe: Recipe
     
+    @State private var completed = Set<Int>()
+    
     var body: some View {
         VStack {
-            HStack {
-                Text("Instructions:")
-                    .font(.headline)
-                Spacer()
-            }
-            List {
-                ForEach(recipe.steps) { step in
-                    RecipeStep(step: step.step)
-                }
+//            HStack {
+//                Text("Instructions:")
+//                    .font(.headline)
+//                Spacer()
+//            }
+            ForEach(recipe.steps) { step in
+                RecipeStep(step: step.step)
 //                Step(step: "Error loading recipe steps")
             }
+            .navigationTitle("Instructions")
+//            .toolbar { EditButton() }
+//            .listStyle()
 //            .frame(minHeight: 200)
         }
     }

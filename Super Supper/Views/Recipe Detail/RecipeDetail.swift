@@ -12,6 +12,8 @@ struct RecipeDeatil: View {
     @EnvironmentObject var recipeController: RecipeController
     var id: Int
     
+    @State private var showIngredients = false
+    
     var body: some View {
         ScrollView {
             Group {
@@ -50,8 +52,14 @@ struct RecipeDeatil: View {
             }
             
             Group {
-                IngredientList(recipe: recipeController.recipe)
-                    .frame(minHeight: 300)
+//                IngredientList(recipe: recipeController.recipe)
+//                    .frame(minHeight: 300)
+//
+                Button(action: { showIngredients.toggle() }) {
+                    Text("Ingredients")
+                }
+                .padding()
+                .background(Color.orange)
                 
                 Divider()
                 
@@ -64,6 +72,10 @@ struct RecipeDeatil: View {
         .padding()
         .onAppear{
             recipeController.getRecipe(id)
+        }
+        .sheet(isPresented: $showIngredients) {
+            IngredientList(recipe: recipeController.recipe)
+                .frame(minHeight: 300)
         }
     }
 }
