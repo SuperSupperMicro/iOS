@@ -135,14 +135,22 @@
 		F18B6DB2272C5CC9001C5517 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F1FF26882723828C0060CE62 /* RecipeRow.swift */,
-				F14D0B4C272F772D0011952D /* AllRecipes.swift */,
-				F15DCD41273D163600E55DBE /* Category List */,
-				F14D0B4E272F847E0011952D /* Recipe Detail */,
+				F1E3CB0F29B7F3B100F2B3CA /* Recipes */,
 				F1FF26492721D2F10060CE62 /* ContentView.swift */,
-				F14450C62738258D00CB711F /* Add Recipe */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F1E3CB0F29B7F3B100F2B3CA /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				F14450C62738258D00CB711F /* Add Recipe */,
+				F14D0B4E272F847E0011952D /* Recipe Detail */,
+				F15DCD41273D163600E55DBE /* Category List */,
+				F1FF26882723828C0060CE62 /* RecipeRow.swift */,
+				F14D0B4C272F772D0011952D /* AllRecipes.swift */,
+			);
+			path = Recipes;
 			sourceTree = "<group>";
 		};
 		F1FF263B2721D2F10060CE62 = {
