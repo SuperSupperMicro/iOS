@@ -6,24 +6,27 @@
 //
 
 import SwiftUI
-import GoogleSignIn
+//import GoogleSignIn
 
 @main
 struct Super_SupperApp: App {
     @StateObject private var recipeController = RecipeController()
+    @StateObject private var itemVM = InventoryItemViewModel()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(recipeController)
-                .onOpenURL{ url in
-                    GIDSignIn.sharedInstance.handle(url)
-                }
-                .onAppear{
-                    GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
-                        // check if user exist othersie do someting with error
-                    }
-                }
+                .environmentObject(itemVM)
+            /// Google Sign in 
+//                .onOpenURL{ url in
+//                    GIDSignIn.sharedInstance.handle(url)
+//                }
+//                .onAppear{
+//                    GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+//                        // check if user exist othersie do someting with error
+//                    }
+//                }
         }
     }
 }

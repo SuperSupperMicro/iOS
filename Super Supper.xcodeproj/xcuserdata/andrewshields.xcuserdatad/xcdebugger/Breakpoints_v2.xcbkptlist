@@ -7,16 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4631B348-927A-4A9B-BBA2-CD41FA35FBE1"
+            uuid = "B15192A3-FF42-4D02-8A54-E1EB100B1DFB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Super Supper/Models/RecipeController.swift"
+            filePath = "Super Supper/ViewModels/InventoryItemViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "getAllRecipes()"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "fetchAllItems()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D124F570-F7FE-4E6A-A1C8-C7944FD3F60E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Super Supper/ViewModels/InventoryItemViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "postNewInvItem(item:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

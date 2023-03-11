@@ -13,6 +13,8 @@
 		F10269E22737B84200ED1CC7 /* emptyRecipe.json in Resources */ = {isa = PBXBuildFile; fileRef = F10269E12737B84200ED1CC7 /* emptyRecipe.json */; };
 		F10269E42737DB6200ED1CC7 /* TimeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10269E32737DB6200ED1CC7 /* TimeInfo.swift */; };
 		F10269E62737E72900ED1CC7 /* RecipeIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10269E52737E72900ED1CC7 /* RecipeIngredient.swift */; };
+		F103D9EC29BABA3300374B43 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F103D9EB29BABA3300374B43 /* GoogleSignIn */; };
+		F103D9EE29BABA3300374B43 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F103D9ED29BABA3300374B43 /* GoogleSignInSwift */; };
 		F14450C32737FED000CB711F /* StepList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14450C22737FED000CB711F /* StepList.swift */; };
 		F14450C52738056C00CB711F /* AddRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14450C42738056C00CB711F /* AddRecipe.swift */; };
 		F14450C82738280300CB711F /* Addingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14450C72738280300CB711F /* Addingredient.swift */; };
@@ -21,9 +23,12 @@
 		F14D0B4D272F772D0011952D /* AllRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14D0B4C272F772D0011952D /* AllRecipes.swift */; };
 		F14D0B50272FA2ED0011952D /* MainCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14D0B4F272FA2ED0011952D /* MainCategory.swift */; };
 		F15DCD43273D168C00E55DBE /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DCD42273D168C00E55DBE /* CategoryList.swift */; };
+		F172C27729BBB41100A1D5EA /* InventoryItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172C27629BBB41100A1D5EA /* InventoryItemList.swift */; };
 		F18B6DB1272C5BF3001C5517 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18B6DB0272C5BF3001C5517 /* Recipe.swift */; };
 		F18B6DB4272C6457001C5517 /* RecipeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18B6DB3272C6457001C5517 /* RecipeStep.swift */; };
-		F1E3CB0E29B7B2B100F2B3CA /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F1E3CB0D29B7B2B100F2B3CA /* GoogleSignInSwift */; };
+		F1E3CB1729B824F200F2B3CA /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E3CB1629B824F200F2B3CA /* InventoryItem.swift */; };
+		F1E3CB1A29B826EB00F2B3CA /* AddInventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E3CB1929B826EB00F2B3CA /* AddInventoryItem.swift */; };
+		F1E3CB1C29B82D9A00F2B3CA /* InventoryItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E3CB1B29B82D9A00F2B3CA /* InventoryItemViewModel.swift */; };
 		F1FF26482721D2F10060CE62 /* Super_SupperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF26472721D2F10060CE62 /* Super_SupperApp.swift */; };
 		F1FF264A2721D2F10060CE62 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF26492721D2F10060CE62 /* ContentView.swift */; };
 		F1FF264C2721D2F50060CE62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1FF264B2721D2F50060CE62 /* Assets.xcassets */; };
@@ -48,9 +53,13 @@
 		F14D0B4C272F772D0011952D /* AllRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipes.swift; sourceTree = "<group>"; };
 		F14D0B4F272FA2ED0011952D /* MainCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategory.swift; sourceTree = "<group>"; };
 		F15DCD42273D168C00E55DBE /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
+		F172C27629BBB41100A1D5EA /* InventoryItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItemList.swift; sourceTree = "<group>"; };
 		F18B6DB0272C5BF3001C5517 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		F18B6DB3272C6457001C5517 /* RecipeStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStep.swift; sourceTree = "<group>"; };
 		F1E3CB0B29B7AE8B00F2B3CA /* Super-Supper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Super-Supper-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F1E3CB1629B824F200F2B3CA /* InventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
+		F1E3CB1929B826EB00F2B3CA /* AddInventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInventoryItem.swift; sourceTree = "<group>"; };
+		F1E3CB1B29B82D9A00F2B3CA /* InventoryItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItemViewModel.swift; sourceTree = "<group>"; };
 		F1FF26442721D2F10060CE62 /* Super Supper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Supper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1FF26472721D2F10060CE62 /* Super_SupperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Super_SupperApp.swift; sourceTree = "<group>"; };
 		F1FF26492721D2F10060CE62 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,7 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1E3CB0E29B7B2B100F2B3CA /* GoogleSignInSwift in Frameworks */,
+				F103D9EC29BABA3300374B43 /* GoogleSignIn in Frameworks */,
+				F103D9EE29BABA3300374B43 /* GoogleSignInSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +138,7 @@
 			children = (
 				F18B6DB0272C5BF3001C5517 /* Recipe.swift */,
 				F10269DE27377D4400ED1CC7 /* RecipeSummary.swift */,
+				F1E3CB1629B824F200F2B3CA /* InventoryItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -135,6 +146,7 @@
 		F18B6DB2272C5CC9001C5517 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F1E3CB1829B826D500F2B3CA /* InventoryItem */,
 				F1E3CB0F29B7F3B100F2B3CA /* Recipes */,
 				F1FF26492721D2F10060CE62 /* ContentView.swift */,
 			);
@@ -151,6 +163,30 @@
 				F14D0B4C272F772D0011952D /* AllRecipes.swift */,
 			);
 			path = Recipes;
+			sourceTree = "<group>";
+		};
+		F1E3CB1029B7F72900F2B3CA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F1E3CB1B29B82D9A00F2B3CA /* InventoryItemViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F1E3CB1329B7F77C00F2B3CA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F1E3CB1829B826D500F2B3CA /* InventoryItem */ = {
+			isa = PBXGroup;
+			children = (
+				F1E3CB1929B826EB00F2B3CA /* AddInventoryItem.swift */,
+				F172C27629BBB41100A1D5EA /* InventoryItemList.swift */,
+			);
+			path = InventoryItem;
 			sourceTree = "<group>";
 		};
 		F1FF263B2721D2F10060CE62 = {
@@ -172,6 +208,8 @@
 		F1FF26462721D2F10060CE62 /* Super Supper */ = {
 			isa = PBXGroup;
 			children = (
+				F1E3CB1329B7F77C00F2B3CA /* Services */,
+				F1E3CB1029B7F72900F2B3CA /* ViewModels */,
 				F1E3CB0B29B7AE8B00F2B3CA /* Super-Supper-Info.plist */,
 				F10269D9273600EF00ED1CC7 /* Resources */,
 				F18B6DB2272C5CC9001C5517 /* Views */,
@@ -209,7 +247,8 @@
 			);
 			name = "Super Supper";
 			packageProductDependencies = (
-				F1E3CB0D29B7B2B100F2B3CA /* GoogleSignInSwift */,
+				F103D9EB29BABA3300374B43 /* GoogleSignIn */,
+				F103D9ED29BABA3300374B43 /* GoogleSignInSwift */,
 			);
 			productName = "Super Supper";
 			productReference = F1FF26442721D2F10060CE62 /* Super Supper.app */;
@@ -240,7 +279,7 @@
 			);
 			mainGroup = F1FF263B2721D2F10060CE62;
 			packageReferences = (
-				F1E3CB0C29B7B2B100F2B3CA /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				F103D9EA29BABA3300374B43 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = F1FF26452721D2F10060CE62 /* Products */;
 			projectDirPath = "";
@@ -271,7 +310,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1E3CB1C29B82D9A00F2B3CA /* InventoryItemViewModel.swift in Sources */,
 				F14450C82738280300CB711F /* Addingredient.swift in Sources */,
+				F1E3CB1A29B826EB00F2B3CA /* AddInventoryItem.swift in Sources */,
 				F14450C52738056C00CB711F /* AddRecipe.swift in Sources */,
 				F10269E42737DB6200ED1CC7 /* TimeInfo.swift in Sources */,
 				F10269E62737E72900ED1CC7 /* RecipeIngredient.swift in Sources */,
@@ -282,11 +323,13 @@
 				F1FF26482721D2F10060CE62 /* Super_SupperApp.swift in Sources */,
 				F18B6DB4272C6457001C5517 /* RecipeStep.swift in Sources */,
 				F14D0B50272FA2ED0011952D /* MainCategory.swift in Sources */,
+				F1E3CB1729B824F200F2B3CA /* InventoryItem.swift in Sources */,
 				F18B6DB1272C5BF3001C5517 /* Recipe.swift in Sources */,
 				F14D0B4B272E59F40011952D /* RecipeController.swift in Sources */,
 				F1FF26892723828C0060CE62 /* RecipeRow.swift in Sources */,
 				F14450C32737FED000CB711F /* StepList.swift in Sources */,
 				F10269DF27377D4400ED1CC7 /* RecipeSummary.swift in Sources */,
+				F172C27729BBB41100A1D5EA /* InventoryItemList.swift in Sources */,
 				F1FF268D2723DD530060CE62 /* RecipeDetail.swift in Sources */,
 				F15DCD43273D168C00E55DBE /* CategoryList.swift in Sources */,
 			);
@@ -346,7 +389,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -401,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -427,7 +470,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +500,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -495,20 +538,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F1E3CB0C29B7B2B100F2B3CA /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+		F103D9EA29BABA3300374B43 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F1E3CB0D29B7B2B100F2B3CA /* GoogleSignInSwift */ = {
+		F103D9EB29BABA3300374B43 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F1E3CB0C29B7B2B100F2B3CA /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			package = F103D9EA29BABA3300374B43 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		F103D9ED29BABA3300374B43 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F103D9EA29BABA3300374B43 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
