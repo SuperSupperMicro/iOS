@@ -16,7 +16,8 @@ enum HTTPMethod: String {
 
 final class RecipeController : ObservableObject {
     
-    private var baseURL = URL(string: "http://192.168.1.125:2021")!
+//    private var baseURL = URL(string: "http://192.168.1.125:2021")!
+    private var baseURL = URL(string: "http://127.0.0.1:2023")!
     private lazy var recipesURL = URL(string: "/recipes", relativeTo: baseURL)!
     
     @Published var recipes: [RecipeSummary] = []
@@ -126,8 +127,7 @@ final class RecipeController : ObservableObject {
                                    cookTime: cookTime, yields: yields,
                                    feeds: feeds, ingredients: ingredients,
                                    steps: steps, tags: tags)
-        
-        //        dump(newRecipe)
+    
         
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
@@ -138,34 +138,7 @@ final class RecipeController : ObservableObject {
         
         let recipeReq = requestBuilder(recipesURL, resolvingAgianstBaseURL: true, method: HTTPMethod.post)!
         
-//        URLSession.shared.uploadTask(with: recipeReq, from: json) { resData, response, error in
-//            if let error = error {
-//                print("Server error POSTing new recipe: \(error)")
-//                return
-//            }
-//
-//
-//            guard let response = response as? HTTPURLResponse,
-//                  (200...203).contains(response.statusCode) else {
-//                print("Server reponse error")
-//                if let responseString = String(bytes: resData!, encoding: .utf8) {
-//                    print(responseString)
-//                } else {
-//                    print("Unable to encode response to valid String")
-//                }
-//                return
-//            }
-//
-//            if let mimeType = response.mimeType,
-//               mimeType == "application/json",
-//               let data = resData,
-//               let jsonString = String(data: data, encoding: .utf8) {
-//                print("Post Data: \(jsonString)")
-//            }
-//
-//        }
         urlSessonUploadTaskBuilder(request: recipeReq, data: json)
-//            .resume()
     }
 }
 
@@ -209,6 +182,7 @@ func requestBuilder (
     var req = URLRequest(url: url)
     req.httpMethod = method.rawValue
     
+    req.setValue("application/json", forHTTPHeaderField: "Accept")
     if method == HTTPMethod.post || method == HTTPMethod.put {
         req.setValue("application/json", forHTTPHeaderField: "Content-Type")
     }
@@ -216,15 +190,13 @@ func requestBuilder (
     return req
 }
 
-func urlSessonUploadTaskBuilder(request: URLRequest, data: Data) {
-    
+func urlSessonUploadTaskBuilder(request: URLRequest, data: Data, responseHandler: ((Data) -> Void)? = nil) {
     URLSession.shared.uploadTask(with: request, from: data) { resData, response, error in
         
         if let error = error {
             print("Server error; urlSessionUploadTaskBuilder() \n \(error)")
             return
         }
-        
         
         guard let response = response as? HTTPURLResponse,
               (200...203).contains(response.statusCode)
@@ -240,12 +212,11 @@ func urlSessonUploadTaskBuilder(request: URLRequest, data: Data) {
         }
         
         if let mimeType = response.mimeType,
-           mimeType == "application/json",
-           let data = resData,
-           let jsonString = String(data: data, encoding: .utf8) {
-            print("Post Data: \(jsonString)")
+            mimeType == "application/json",
+            let data = resData,
+            let responseHandler = responseHandler {
+            responseHandler(data)
         }
-        
     }
     .resume()
 }

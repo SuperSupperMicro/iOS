@@ -13,7 +13,7 @@ final class InventoryItemViewModel: ObservableObject {
     @Published private (set) var inventoryItems: [InventoryItem]?
     @Published private (set) var currentItem: InventoryItem?
     
-    let baseURL = URL(string: "http://192.168.1.199:2023")!
+    let baseURL = URL(string: URLCONSTANTS.invBase)!
 
     // MARK: - web functions
     
@@ -22,14 +22,19 @@ final class InventoryItemViewModel: ObservableObject {
     
     func fetchAllItems() {
         let url = URL(string: "/inventoryItems/", relativeTo: baseURL)!
+        
+        let request = AuthenticationViewModel.authRequestBuilder(url: url)!
+        
+        print(request.url)
+        
         inventoryItemControllerStatus = .fetching
         requestCancellable?.cancel()
         
         let session = URLSession.shared
-        let publisher = session.dataTaskPublisher(for: url)
+        let publisher = session.dataTaskPublisher(for: request)
             .retry(1)
             .tryMap { (data, urlResponse) -> [InventoryItem]? in
-                
+                print(urlResponse)
                 guard let httpResponse = urlResponse as? HTTPURLResponse, httpResponse.statusCode == 200 else {
                     throw URLError(.badServerResponse)
                 }
@@ -48,7 +53,6 @@ final class InventoryItemViewModel: ObservableObject {
             .sink { [weak self]  items in
                 self?.inventoryItems = items
                 self?.inventoryItemControllerStatus = items != nil ? .idle : .failed(url)
-                print("Success fetching items: \(String(describing: items))")
             }
     }
     

@@ -4,6 +4,8 @@
 <dict>
 	<key>GIDClientID</key>
 	<string>517098757539-unfbg9ilnvkch7f3uhvglp3ovs1qo6gc.apps.googleusercontent.com</string>
+	<key>GIDServerClientID</key>
+	<string>517098757539-nbc65pdm7424p6pp4gh6uq0pva6mvqa5.apps.googleusercontent.com</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

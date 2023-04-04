@@ -6,47 +6,71 @@
 //
 
 import SwiftUI
-//import GoogleSignIn
-//import GoogleSignInSwift
+import GoogleSignIn
+import GoogleSignInSwift
 
 struct ContentView: View {
     @EnvironmentObject var recipeController: RecipeController
     @EnvironmentObject var itemVM: InventoryItemViewModel
-//    @ObservedObject var vm = GoogleSignInButtonViewModel()
-    
-    @State private var tabSelection: Tab = .recipes
-    
+    @EnvironmentObject var authVM: AuthenticationViewModel
+
+    @State private var tabSelection: Tab = .mealPlans
+
     enum Tab {
-        case recipes
+        case shoppingList
         case invetoryItems
-        case tab2
+        case mealPlans
+        case recipes
     }
     
     var body: some View {
-        TabView(selection: $tabSelection) {
-            VStack {
-                inventoryItemList
-                Button("Add Item") {
-                    showAddItem.toggle()
+        NavigationView {
+            switch authVM.signInState {
+            case .signedOut:
+                Login()
+                    .navigationTitle("Login")
+            case .signedIn:
+                TabView(selection: $tabSelection) {
+                    Text("ShoppingList")
+                        .tabItem {
+                            Label("Shopping List", systemImage: "circle")
+                        }
+                        .tag(Tab.shoppingList)
+                    
+                    VStack {
+                        inventoryItemList
+                        Button("Add Item") {
+                            showAddItem.toggle()
+                        }
+                        Button("Test AUTH!") {
+                            authVM.testSend()
+                        }
+                        Button("Sign Out") {
+                            authVM.signOut()
+                        }
+                    }
+                    .tabItem {
+                        Label("Inventory Items", systemImage: "list.bullet")
+                    }
+                    .tag(Tab.invetoryItems)
+                    
+                    Text("Meal Plans")
+                        .tabItem {
+                            Label("Meal Plans", systemImage: "circle")
+                        }
+                        .tag(Tab.mealPlans)
+                    
+                    
+                    AllRecipes()
+                        .tabItem {
+                            Label("Recipes", systemImage: "list.bullet")
+                        }
+                        .tag(Tab.recipes)
                 }
-                /// Google Sign in button
-//                GoogleSignInButton(viewModel: vm, action: handleSignInButton )
             }
-            .tabItem {
-                Label("InventoryItems", systemImage: "list.bullet")
-            }
-            
-            AllRecipes()
-                .tabItem {
-                    Label("Recipes", systemImage: "list.bullet")
-                }
-
-
-            CategoryList()
-                .tabItem {
-                    Label("Tab2", systemImage: "star")
-                }
         }
+        
+        
     }
     
     @State private var currentItem: InventoryItem = InventoryItem.DEFAULTTHEME
@@ -81,27 +105,13 @@ struct ContentView: View {
         itemVM.fetchAllItems()
         showAddItem = false
     }
-    
-    /// Sign in handler for Google sign in
-//    func handleSignInButton() {
-//        guard let rootViewController = UIApplication.shared.windows.first?.rootViewController else {
-//            print("There is no root view controller!")
-//            return
-//          }
-//        GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { signInResult, error in
-//            guard let result = signInResult else {
-//                // Inspect error
-//                return
-//            }
-//
-//            // if sign-in succeeded, display the app's main content view
-//        }
-//    }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(RecipeController())
+            .environmentObject(AuthenticationViewModel())
     }
 }
+

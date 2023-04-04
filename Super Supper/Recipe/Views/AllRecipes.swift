@@ -21,11 +21,11 @@ struct AllRecipes: View {
                     }
                 }
                 .navigationTitle("All Recipes")
-                .onAppear(perform: recipeController.getAllRecipes)
+//                .onAppear(perform: recipeController.getAllRecipes)
             }
-            .onAppear {
-                recipeController.getAllRecipes()
-            }
+//            .onAppear {
+//                recipeController.getAllRecipes()
+//            }
         }
     }
 }
