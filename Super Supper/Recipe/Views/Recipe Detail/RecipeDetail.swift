@@ -15,68 +15,69 @@ struct RecipeDeatil: View {
     @State private var showIngredients = false
     
     var body: some View {
-        ScrollView {
-            Group {
-                Spacer()
-                if #available(iOS 15.0, *) {
-                    AsyncImage(url: URL(string: recipeController.recipe.imgUrl))
-                        .frame(width: 275, height: 275)
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                        .shadow(radius: 4)
-                } else {
-                    Image("BeefStew")
-                        .frame(width: 275, height: 275)
-                        .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.gray, lineWidth: 10))
-                }
-                Text(recipeController.recipe.title)
-                    .font(.title)
-                TimeInfo(totalTime: recipeController.recipe.totalTime,
-                     prepTime: recipeController.recipe.prepTime,
-                     cookTime: recipeController.recipe.cookTime,
-                     yields: recipeController.recipe.yields,
-                     feeds: recipeController.recipe.feeds)
-                Divider()
-            }
-            
-            Group {
-                Text("Description:")
-                    .font(.headline)
-                .multilineTextAlignment(.center)
-                
-                Text(recipeController.recipe.description)
-                    .font(.footnote)
-                
-                Divider()
-            }
-            
-            Group {
-//                IngredientList(recipe: recipeController.recipe)
-//                    .frame(minHeight: 300)
+        Text("RecipeDetail")
+//        ScrollView {
+//            Group {
+//                Spacer()
+//                if #available(iOS 15.0, *) {
+//                    AsyncImage(url: URL(string: recipeController.recipe.imgUrl))
+//                        .frame(width: 275, height: 275)
+//                        .clipShape(Circle())
+//                        .overlay(Circle().stroke(Color.white, lineWidth: 2))
+//                        .shadow(radius: 4)
+//                } else {
+//                    Image("BeefStew")
+//                        .frame(width: 275, height: 275)
+//                        .clipShape(Circle())
+//                    .overlay(Circle().stroke(Color.gray, lineWidth: 10))
+//                }
+//                Text(recipeController.recipe.title)
+//                    .font(.title)
+//                TimeInfo(totalTime: recipeController.recipe.totalTime,
+//                     prepTime: recipeController.recipe.prepTime,
+//                     cookTime: recipeController.recipe.cookTime,
+//                     yields: recipeController.recipe.yields,
+//                     feeds: recipeController.recipe.feeds)
+//                Divider()
+//            }
 //
-                Button(action: { showIngredients.toggle() }) {
-                    Text("Ingredients")
-                }
-                .padding()
-                .background(Color.orange)
-                
-                Divider()
-                
-                StepList(recipe: recipeController.recipe)
-                .frame(minHeight: 200)
-            }
-        }
-        .navigationTitle(recipeController.recipe.title)
-        .navigationBarTitleDisplayMode(.inline)
-        .padding()
-        .onAppear{
-            recipeController.getRecipe(id)
-        }
-        .sheet(isPresented: $showIngredients) {
-            IngredientList(recipe: recipeController.recipe)
-                .frame(minHeight: 300)
-        }
+//            Group {
+//                Text("Description:")
+//                    .font(.headline)
+//                .multilineTextAlignment(.center)
+//
+//                Text(recipeController.recipe.description)
+//                    .font(.footnote)
+//
+//                Divider()
+//            }
+//
+//            Group {
+////                IngredientList(recipe: recipeController.recipe)
+////                    .frame(minHeight: 300)
+////
+//                Button(action: { showIngredients.toggle() }) {
+//                    Text("Ingredients")
+//                }
+//                .padding()
+//                .background(Color.orange)
+//
+//                Divider()
+//
+//                StepList(recipe: recipeController.recipe)
+//                .frame(minHeight: 200)
+//            }
+//        }
+//        .navigationTitle(recipeController.recipe.title)
+//        .navigationBarTitleDisplayMode(.inline)
+//        .padding()
+//        .onAppear{
+//            recipeController.getRecipe(id)
+//        }
+//        .sheet(isPresented: $showIngredients) {
+//            IngredientList(recipe: recipeController.recipe)
+//                .frame(minHeight: 300)
+//        }
     }
 }
 

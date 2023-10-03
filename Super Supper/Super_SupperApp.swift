@@ -13,6 +13,7 @@ struct Super_SupperApp: App {
     @StateObject private var recipeController = RecipeController()
     @StateObject private var itemVM = InventoryItemViewModel()
     @StateObject private var authVM = AuthenticationViewModel()
+    @StateObject private var groceryVM = GroceryItemViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -20,6 +21,7 @@ struct Super_SupperApp: App {
                 .environmentObject(recipeController)
                 .environmentObject(itemVM)
                 .environmentObject(authVM)
+                .environmentObject(groceryVM)
             /// Google Sign in 
                 .onOpenURL{ url in
                     GIDSignIn.sharedInstance.handle(url)

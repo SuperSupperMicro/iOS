@@ -38,8 +38,10 @@ struct ContentView: View {
                         .tag(Tab.shoppingList)
                     
                     VStack {
-                        inventoryItemList
-                        Button("Add Item") {
+//                        inventoryItemList
+                        InventoryMain()
+                        Button("SHOW ME") {
+                            print("clicking")
                             showAddItem.toggle()
                         }
                         Button("Test AUTH!") {
@@ -80,7 +82,7 @@ struct ContentView: View {
         InventoryItemList()
             .sheet(isPresented: $showAddItem) {
                 VStack {
-                    AddInventoryItem(item: $currentItem)
+                    AddInventoryItem()
                     Button("Submit") {
                         Task {
                            await itemSubmissionHandler()

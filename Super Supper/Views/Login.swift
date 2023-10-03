@@ -15,10 +15,29 @@ struct Login: View {
     
     var body: some View {
         VStack {
+            Spacer()
             ZStack {
                 Circle()
                     .fill()
                 .foregroundColor(/*@START_MENU_TOKEN@*/Color("C4")/*@END_MENU_TOKEN@*/)
+                Rectangle()
+                    .fill(.white)
+                    .frame(width: 250, height: 250)
+                Rectangle()
+                    .fill(.clear)
+                    .frame(width: 175, height: 175)
+                    .border(.black)
+                Rectangle()
+                    .fill(.clear)
+                    .frame(width: 150, height: 150)
+                    .border(.black)
+                Rectangle()
+                    .fill(.clear)
+                    .frame(width: 150, height: 150)
+                    .border(.black)
+                    .rotationEffect(Angle(degrees: 45))
+            
+                
                 Text("SUPER \nSUPPER \nLOGO HERE")
             }
             VStack {
@@ -47,8 +66,12 @@ struct Login: View {
                     ///
                 }
             }
+            
+            Spacer()
+            
         }
         .padding()
+        .background(/*@START_MENU_TOKEN@*/Color("C3")/*@END_MENU_TOKEN@*/)
     }
     
     
@@ -58,5 +81,6 @@ struct Login: View {
 struct Login_Previews: PreviewProvider {
     static var previews: some View {
         Login()
+            .environmentObject(AuthenticationViewModel())
     }
 }

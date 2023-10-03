@@ -14,26 +14,27 @@ struct StepList: View {
     
     var body: some View {
         VStack {
+            Text("StepList")
 //            HStack {
 //                Text("Instructions:")
 //                    .font(.headline)
 //                Spacer()
 //            }
-            ForEach(recipe.steps) { step in
-                RecipeStep(step: step.step)
+//            ForEach(recipe.steps) { step in
+//                RecipeStep(step: step.step)
 //                Step(step: "Error loading recipe steps")
-            }
-            .navigationTitle("Instructions")
+//            }
+//            .navigationTitle("Instructions")
 //            .toolbar { EditButton() }
 //            .listStyle()
 //            .frame(minHeight: 200)
         }
     }
 }
-
-struct StepList_Previews: PreviewProvider {
-    static let rec = RecipeController().defaultRecipe
-    static var previews: some View {
-        StepList(recipe: rec)
-    }
-}
+//
+//struct StepList_Previews: PreviewProvider {
+//    static let rec = RecipeController().defaultRecipe
+//    static var previews: some View {
+//        StepList(recipe: rec)
+//    }
+//}

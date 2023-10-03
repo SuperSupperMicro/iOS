@@ -142,3 +142,10 @@ struct URLCONSTANTS {
 struct TokenResponse: Codable {
     let token: String
 }
+
+enum ControllerStatus: Equatable {
+    case idle
+    case fetching
+    case sending
+    case failed(URL)
+}

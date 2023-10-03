@@ -29,11 +29,11 @@ struct IngredientList: View {
         .padding()
     }
 }
-
-struct IngredientList_Previews: PreviewProvider {
-    static let rec = RecipeController().defaultRecipe
-    static var previews: some View {
-        IngredientList(recipe: rec)
-            
-    }
-}
+//
+//struct IngredientList_Previews: PreviewProvider {
+//    static let rec = RecipeController().defaultRecipe
+//    static var previews: some View {
+//        IngredientList(recipe: rec)
+//            
+//    }
+//}

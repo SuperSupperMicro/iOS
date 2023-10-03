@@ -21,8 +21,8 @@ final class RecipeController : ObservableObject {
     private lazy var recipesURL = URL(string: "/recipes", relativeTo: baseURL)!
     
     @Published var recipes: [RecipeSummary] = []
-    @Published var recipe: Recipe = loadFromFile("emptyRecipe.json")
-    var defaultRecipe: Recipe = loadFromFile("recipe.json")
+    @Published var recipe: Recipe? = nil
+    var defaultRecipe: Recipe? = nil
     
     func getAllRecipes () {
         let recipesUrl = requestBuilder(recipesURL, resolvingAgianstBaseURL: true)!

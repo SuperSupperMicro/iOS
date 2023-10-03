@@ -31,8 +31,8 @@ struct InventoryItemList: View {
     }
 }
 
-struct InventoryItemList_Previews: PreviewProvider {
-    static var previews: some View {
-        InventoryItemList()
-    }
-}
+//struct InventoryItemList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InventoryItemList()
+//    }
+//}
