@@ -1,4 +1,5 @@
 # Super-Supper - Your Ultimate Meal Management App
+##### (in development)
 ### Introduction
 
 Super-Supper is a groundbreaking application, designed to revolutionize the way users manage their meals, reduce waste, save money, and streamline their shopping experience. It offers a comprehensive suite of five interconnected services that work together seamlessly to enhance users' culinary experiences and household management. Super-Supper is not just a meal planner; it's your ultimate companion for efficient meal management.
