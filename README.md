@@ -44,7 +44,13 @@ Super-Supper is a groundbreaking application, designed to revolutionize the way 
 - Features a Node.js recipe service.
 - API Integration: Super-Supper uses external APIs to access nutritional databases and potential sales data from local stores.
 - SSO (Single Sign-On)
-- Custom encoded "HeftyToken" authentication token.    
+- Custom encoded "HeftyToken" authentication token.
+
+##### Design layout and initial wireframes
+
+![application layout](/layout.png)
+
+![user flow](/flow.png)
 
 ### Future Developments:
 Super-Supper has a roadmap for continuous improvement, including:
@@ -53,7 +59,3 @@ Super-Supper has a roadmap for continuous improvement, including:
 - Integration with smart kitchen appliances for seamless cooking experiences.
 - Advanced AI-driven meal recommendations based on user preferences and dietary goals.
 - Support for additional platforms beyond iOS.
-
-Conclusion
-
-Super-Supper is the ultimate meal management application that empowers users to take control of their culinary journey. With its powerful features, seamless integration, and future development plans, Super-Supper aims to make meal planning, grocery shopping, and cooking an efficient and enjoyable experience for everyone. Say goodbye to food waste and hello to culinary excellence with Super-Supper!
